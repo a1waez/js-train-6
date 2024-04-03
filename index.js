@@ -1,5 +1,5 @@
 //Завдання 1.Cтворіть об'єкт person за допомогою конструктора з полями name: "John",age: 25
-let person = {};
+let person = { name: "John", age: 25 };
 
 console.log("Завдання 1 ====================================");
 
@@ -9,7 +9,11 @@ console.log("person", person); // Виведе {name: "John", age: 25}
 // та вкладений об'єкт address з полями  street: "123 Main St", city: "New York", country: "USA",
 let personLarge = {
   //використовуємо деструктурізацію на об'єкті person
+
+  name: "John",
+  age: 25,
   //створюємо об'єкт address
+  address: { street: "123 Main St", city: "New York", country: "USA" },
 };
 
 console.log("Завдання 2 ====================================");
@@ -31,6 +35,7 @@ var animal = {
 function copyObject(obj) {
   // Використовуємо синтаксис деструктурізації {...person} для створення нового об'єкта з тими ж властивостями
   // Повертаємо новий об'єкт
+  return obj;
 }
 
 console.log("Завдання 3 ====================================");
@@ -61,6 +66,9 @@ let country = {
 // Функція для виведення всіх ключів і значень об'єкта
 function printKeysAndValues(obj) {
   // Проходимося по всіх ключах об'єкту за допомогою циклу "for in"
+  for (const Key in obj) {
+    console.log(`Key: ${Key} Value: ${obj[Key]}`);
+  }
   // Виводимо ключ та значення на консоль
 }
 
@@ -78,7 +86,9 @@ let movie = {
 // Функція для видалення властивості з об'єкта
 function deleteProperty(obj, property) {
   // Використовуємо оператор "delete" для видалення властивості
+  delete obj[property];
   // Повертаємо об'єкт
+  return obj;
 }
 
 console.log("Завдання 6 ====================================");
@@ -108,9 +118,10 @@ let book = {
 // Функція для додавання нового поля до об'єкту
 function addField(obj, newField, value) {
   // Додаємо нове поле до об'єкту з допомогою квадратних дужок
+  obj[newField] = value;
   // Повертаємо об'єкт
+  return obj;
 }
-
 console.log("Завдання 8 ====================================");
 console.log(addField(book, "year", 1960)); // Виведе { title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 }
 
@@ -141,6 +152,10 @@ function changeRole(array, newRole) {
   // Ітеруємося по масиву об'єктів за допомогою циклу "for of"
   // Змінюємо роль кожного користувача на нове ім'я
   // Виводимо об'єкт на консоль
+  for (let elem of array) {
+    elem.role = newRole;
+    console.log(elem);
+  }
 }
 
 console.log("Завдання 10 ====================================");
@@ -209,11 +224,13 @@ console.log(showCarInfo(car)); // Виведе { brand: 'BMW', year: 2022, count
 // Створюємо функцію, яка буде додавати нову властивість до масиву
 function addProperty(array) {
   // Додаємо нову властивість customProperty до прототипу Array зі значенням myProperty
-  // Повертаємо переданий масив з новою властивістю
+  // [array.customProperty] + Array[myProperty];
+  // // Повертаємо переданий масив з новою властивістю
+  // console.log(array);
 }
 
 console.log("Завдання 14 ====================================");
 // Створимо масив newArr з новою властивістю за допомогої нашої функції в яку передамо [1, 2, 3, 4, 5]
-
-// Розкоментуйте рядок нижче після виконня завдання для перевірки
+// let newArr = [(1, 2, 3, 4, 5)];
+// // Розкоментуйте рядок нижче після виконня завдання для перевірки
 // console.log(newArr.customProperty); // Виведе myProperty
